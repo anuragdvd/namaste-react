@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuragdvd/namaste-react.git"
+  },
+  "author": "Anurag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuragdvd/namaste-react/issues"
+  },
+  "homepage": "https://github.com/anuragdvd/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.10.0"
+  }
+}
