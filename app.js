@@ -79,17 +79,19 @@ const title = <h1> This is a React Component compisition </h1>;
 const title2 = <h1>This is React Component wow {title}</h1>;
 
 const number = 10000;
-// Very simple to compose components -> <Title /> or <Title></Title>
+// Very simple to compose components -> <Title /> or <Title></Title> or even {Title()}
 // You can also write JS inside these functions by using {}
 // You can also compose it with React component
 const HeadingComponent = () => (
   <div id="container">
     <Title></Title>
     <Title />
+
     <h2> React JSX is pure magic {number + 233} </h2>
     <h3>{console.log("Will console log work")}</h3>
     <h1 className="heading">Welcome to React</h1>
     {title2}
+    {Title()}
   </div>
 );
 
@@ -100,7 +102,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 console.log("about to render");
 root.render(<HeadingComponent />);
 
-const data = api.getData();
+// const data = api.getData();
 
 // What if the api is malicious ? As we are executing the JS code that is present in JSX
 // JSX will take care of these data
