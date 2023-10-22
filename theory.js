@@ -123,9 +123,24 @@ const HeadingComponent = () => (
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(jsxHeading);
 
+const xyz = () => {
+  const [v, hello] = React.useState(0);
+  return React.createElement("h1", {}, "internal");
+};
+
+const Testing = () => {
+  return React.createElement("h1", {}, [
+    "Welcome to madness",
+    xyz(),
+    // React.createElement(xyz()),
+  ]);
+};
+
 // Syntax to render functional component
 console.log("about to render");
-root.render(<HeadingComponent />);
+// root.render(<HeadingComponent />);
+
+root.render(<Testing />);
 
 // const data = api.getData();
 
