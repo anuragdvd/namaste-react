@@ -39,18 +39,18 @@ export const Body = () => {
   ) : (
     <div className="content">
       {/* <div className="search">Search</div> */}
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex items-center">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(newVal) => {
               setSearchText(newVal.target.value);
             }}
           ></input>
           <button
-            className="search-btn"
+            className="px-4 py-2 m-4 bg-green-100 rounded-lg"
             onClick={() => {
               // filter the restro cards and update the UI
               setState(
@@ -65,16 +65,18 @@ export const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setState(state.filter((elem) => elem.info.avgRating > 4.2));
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div className="m-4 p-4">
+          <button
+            className="px-4 py-2 m-4 bg-green-100 rounded-lg"
+            onClick={() => {
+              setState(state.filter((elem) => elem.info.avgRating > 4.2));
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {state.map((restaurant, index) => (
           // Never use indexes as keys
           // https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/
