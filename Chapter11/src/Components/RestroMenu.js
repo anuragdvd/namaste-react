@@ -6,6 +6,7 @@ import RestroAccordion from "./RestroAccordion";
 
 const RestroMenu = () => {
   const { resId } = useParams();
+  const [showIndex, setShowIndex] = useState(null);
 
   const resInfo = useRestroMenu(resId);
 
@@ -30,8 +31,19 @@ const RestroMenu = () => {
       <p className="font-bold text-lg">
         {cuisines.join(", ")} - {costForTwoMessage}{" "}
       </p>
-      {categories.map((category) => {
-        return <RestroAccordion data={category?.card?.card} />;
+      {categories.map((category, index) => {
+        return (
+          // controlled component
+          <RestroAccordion
+            key={category?.card?.card?.title}
+            data={category?.card?.card}
+            showItems={index === showIndex}
+            setCurrIndex={() => setShowIndex(index)}
+            collapseCurrIndex={() => setShowIndex(null)}
+            currIndex={showIndex}
+            idx={index}
+          />
+        );
       })}
     </div>
   );

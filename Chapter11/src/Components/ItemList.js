@@ -1,9 +1,15 @@
 import { cdnUrl } from "../Utils/constants";
 
+/*
+
+Feature -> If one accordion is open then other accordion should get closed
+
+*/
+
 const ItemList = (props) => {
   const { itemCards } = props;
   //   const { name, }
-  console.log(itemCards);
+  //   console.log(itemCards);
   return (
     <div>
       {itemCards.map((item) => {
