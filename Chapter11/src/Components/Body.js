@@ -1,7 +1,8 @@
 import { RestroCard, withPromotedLabel } from "./RestroCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import UserContext from "../Utils/UserContext";
 
 export const Body = () => {
   // Local State Variable - Superpowerful variable
@@ -37,6 +38,8 @@ export const Body = () => {
   const RestaurantCardPromoted = withPromotedLabel(RestroCard);
 
   console.log(`This is state ${state}`);
+
+  const { name, setUserName } = useContext(UserContext);
 
   return !state || state.length === 0 ? (
     <Shimmer />
@@ -78,6 +81,17 @@ export const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div className="m-4 p-4">
+          <label>UserName : </label>
+          <input
+            type="text"
+            className="border border-black"
+            value={name}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          ></input>
         </div>
       </div>
       <div className="flex flex-wrap">
